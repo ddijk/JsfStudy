@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html" xmlns:wc="http://googlecode.com/wickedcharts"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title>Facelet Title</title>
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -10,12 +10,23 @@
         <script src="http://code.highcharts.com/modules/exporting.js"></script>
     </h:head>
     <h:body>
-        <ui:remove>
-            <wc:chart id="chart1" options="#{myBean.options}" theme="#{myBean.theme}" />
-            <wc:chart id="chart2" options="#{myBean.options}" themeUrlRef="#{myBean.themeUrlRef}" />
-            <wc:chart id="chart4" options="#{myBean.options}" themeUrlRef="http://js.mySite.com/myTheme.js" />
-        </ui:remove>
-        <wc:chart id="chart3" options="#{myBean.options}" themeUrlRef="js/myTheme.js" />
+
+
+        <h:form>
+
+            <h:inputText id="name" value="#{helloBean.name}"></h:inputText>
+            <h:commandButton value="Welcome Me">
+                <f:ajax execute="name" render="output2" />
+            </h:commandButton>
+            <h:commandButton value="Update chart">
+                <f:ajax execute="name" render="output" />
+            </h:commandButton>
+            <div id="output">
+                <wc:chart id="chart3" options="#{myBean.options}" />
+            </div>
+            <h2><h:outputText id="output2" value="#{helloBean.sayWelcome}" /></h2>
+        </h:form>
+
 
     </h:body>
 </html>

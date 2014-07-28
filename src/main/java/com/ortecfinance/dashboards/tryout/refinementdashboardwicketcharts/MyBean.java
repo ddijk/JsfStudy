@@ -13,11 +13,15 @@ import com.googlecode.wickedcharts.highcharts.options.series.SimpleSeries;
 import java.util.Arrays;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
+import javax.inject.Inject;
 
 @Model
 public class MyBean {
 
     Options options;
+    
+    @Inject
+    HelloBean helloBean;
 
     @PostConstruct
     public void init() {
@@ -28,7 +32,7 @@ public class MyBean {
                         .setType(SeriesType.LINE));
 
         options
-                .setTitle(new Title("My very own chart."));
+                .setTitle(new Title("My very own chart "+ helloBean.getName()));
 
         options
                 .setxAxis(new Axis()

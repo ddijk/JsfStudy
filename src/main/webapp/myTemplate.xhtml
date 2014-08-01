@@ -6,9 +6,18 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="./css/default.css"/>
-        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css" />
         <title>Facelets Template</title>
+        <style>
+            .err {
+                color: red;
+            }
+            
+            .inf {
+                color: green;
+            } 
+        </style>
     </h:head>
 
     <h:body>
@@ -19,6 +28,7 @@
 
         <div id="content" class="center_content">
             <ui:insert name="content">Content</ui:insert>
+            <h:messages errorClass="err" infoClass="inf"/>
         </div>
 
     </h:body>

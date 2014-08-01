@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="./../myTemplate.xhtml"
+                xmlns:ezcomp="http://java.sun.com/jsf/composite/ezcomp"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="top">
+        My Site
+    </ui:define>
+
+    <ui:define name="content">
+        <ezcomp:subscribe  mylabel="hai" >
+            <f:actionListener for="knop" binding="#{newJSFManagedBean.knopHandler}"/>
+        </ezcomp:subscribe>
+
+        <h:form prependId="false">
+            <f:ajax listener="#{newJSFManagedBean.checkFormat}">
+                <h:inputText id="aap" value="#{newJSFManagedBean.lengte}"/>
+            </f:ajax>
+            <h:commandButton value="ok" actionListener="#{newJSFManagedBean.knopHandler}"/>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

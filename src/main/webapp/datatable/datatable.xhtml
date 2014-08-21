@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+	<body>
+
+		<ui:composition template="./../myTemplate.xhtml">
+
+			<ui:define name="top">
+				Datatable
+			</ui:define>
+
+			<ui:define name="content">
+				<h:form>
+					<h:dataTable binding="#{datatableBean.persons}" value="#{datatableBean.personen}" var="persoon">
+						<h:column><f:facet name="header">voornaam</f:facet>
+							#{persoon.firstName}</h:column>
+						<h:column><f:facet name="header">achternaam</f:facet>#{persoon.lastName}</h:column>
+						<h:column><f:facet name="header">edit</f:facet><h:commandButton value="edit" action="#{datatableBean.rowAction}"/></h:column>
+					</h:dataTable>
+				</h:form>
+				<h:outputText value="#{msg}"/>
+			</ui:define>
+
+		</ui:composition>
+
+	</body>
+</html>

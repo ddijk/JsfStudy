@@ -10,6 +10,7 @@ import javax.enterprise.context.Dependent;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
+import javax.faces.event.ValueChangeEvent;
 import javax.inject.Named;
 
 /**
@@ -20,7 +21,8 @@ import javax.inject.Named;
 @RequestScoped
 public class NewJSFManagedBean {
     
-    String lengte;
+    String naam;
+    int age;
 
     /**
      * Creates a new instance of NewJSFManagedBean
@@ -29,21 +31,37 @@ public class NewJSFManagedBean {
         System.out.println("constr NewJSFManagedBean");
     }
 
-    public String getLengte() {
-        return lengte;
+    public String getNaam() {
+        return naam;
     }
 
-    public void setLengte(String lengte) {
-        this.lengte = lengte;
+    public void setNaam(String naam) {
+        this.naam = naam;
     }
     
     
     public void knopHandler(ActionEvent e) {
-        System.out.println("knop handled, lengte= "+lengte+", "+e);
+        System.out.println("knop handled, lengte= "+naam+", "+e);
     }
     
     public void checkFormat(AjaxBehaviorEvent e) {
         System.out.println("AjaxBehaviourEvent, "+e);
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+    
+    public void preRenderView() {
+        System.out.println("preRenderView");
+    }
+    
+    public void myValueChangeListener(ValueChangeEvent e) {
+        System.out.println("myValueChangeListener, "+e);
     }
     
 }

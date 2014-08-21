@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <f:metadata>
+            <f:viewParam name="naam" value="#{newJSFManagedBean.naam}"/>
+            <f:viewParam name="leeftijd" value="#{newJSFManagedBean.age}"/>
+        </f:metadata>
+    </h:head>
+
+    <h:body>
+        <h:link value="link to get" outcome="getRequest">
+            <f:param name="len" value="#{newJSFManagedBean.naam}"/>
+            <f:param name="leeftijd" value="#{newJSFManagedBean.age}"/>
+        </h:link>
+        <div>
+            <h:form>
+                Naam: <h:inputText id="naam" value="#{newJSFManagedBean.naam}"></h:inputText>
+                <h:commandLink value="Login page" />
+
+		<h:commandButton immediate="true" value="Cancel" action="/cancel"/>
+            </h:form>
+        </div>
+
+    </h:body>
+</html>

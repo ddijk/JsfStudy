@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<body>
+
+		<ui:composition template="./../myTemplate.xhtml">
+
+			<ui:define name="top">
+				Partial Validation
+			</ui:define>
+
+			<ui:define name="content">
+				<h:form prependId="false">
+					<h:outputLabel for="naam">Mijn naam</h:outputLabel> <h:inputText id="naam" required="true" binding="#{partialBean.name}"/>
+					zipcode <h:inputText immediate="true" binding="#{partialBean.zipcode}" onchange="document.getElementById('autofill').click();" valueChangeListener="#{partialBean.zipCodeChanged}"/>
+					state<h:inputText immediate="true" binding="#{partialBean.state}"/>
+					<h:commandButton style="visibility:hidden" id="autofill" immediate="true" value="autofill"/>
+
+					<h:outputLabel value="Add more info"/>
+					<h:selectBooleanCheckbox immediate="true" binding="#{partialBean.infoCheckbox}" onchange="document.getElementById('autofill').click();" valueChangeListener="#{partialBean.infoHandler}"/>
+					<h:panelGroup rendered="#{partialBean.showInfo}">
+						
+						<h:outputLabel value="MOre info"/>
+						<h:inputTextarea binding="#{partialBean.info}"/>
+					</h:panelGroup>
+
+					<h:commandButton  value="ok"/>
+
+				</h:form>
+			</ui:define>
+
+		</ui:composition>
+
+	</body>
+</html>

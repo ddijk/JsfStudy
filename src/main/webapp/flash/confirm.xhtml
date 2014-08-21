@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		<f:metadata>
+			<f:viewParam name="naam" value="#{flash.naam}"/>
+		</f:metadata>
+	</h:head>
+
+	<h:body>
+		<ui:composition template="./../myTemplate.xhtml">
+
+			<ui:define name="top">
+				Confirm
+			</ui:define>
+
+			<ui:define name="content">
+				<h:form>
+				Naam: <h:outputText value="#{flash.keep.naam}"/>
+				<h:commandButton value="Edit" action="register?faces-redirect=true"/>
+				<h:commandButton value="Confirm" action="done?faces-redirect=true"/>
+				</h:form>
+			</ui:define>
+
+		</ui:composition>
+
+	</h:body>
+</html>

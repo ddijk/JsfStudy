@@ -8,10 +8,11 @@
     <cc:interface>
         <cc:attribute name="mylabel"/>
         <cc:actionSource name="knop"/>
+	<cc:attribute name="action" targets="knopp" default="/default2?faces-redirect=true"/>
     </cc:interface>
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
-        <h:form prependId="false"><h:outputLabel value="#{cc.attrs.mylabel}"/><h:inputText id="emailaddress" value="#{subscriberManagedBean.emailAddress}"></h:inputText><h:commandButton action="#{cc.a.knop}" id="knop" value="Subcribe"></h:commandButton></h:form>
+        <h:outputLabel value="#{cc.attrs.mylabel}"/><h:inputText id="emailaddress" value="#{subscriberManagedBean.emailAddress}"></h:inputText><h:commandButton  id="knopp" value="Subcribe"></h:commandButton>
     </cc:implementation>
 </html>

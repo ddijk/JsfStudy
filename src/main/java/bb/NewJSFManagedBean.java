@@ -44,6 +44,11 @@ public class NewJSFManagedBean {
         System.out.println("knop handled, lengte= "+naam+", "+e);
     }
     
+      public String knopHandler2() {
+	      System.out.println("exec knopHandler2");
+	      return "/default";
+	      
+      }
     public void checkFormat(AjaxBehaviorEvent e) {
         System.out.println("AjaxBehaviourEvent, "+e);
     }

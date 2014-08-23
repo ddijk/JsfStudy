@@ -6,21 +6,24 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core">
 
-    <ui:define name="top">
-        My Site
-    </ui:define>
+	<ui:define name="top">
+		My Site
 
-    <ui:define name="content">
-        <ezcomp:subscribe  mylabel="hai" >
-            <f:actionListener for="knop" binding="#{newJSFManagedBean.knopHandler}"/>
-        </ezcomp:subscribe>
+	</ui:define>
 
-        <h:form prependId="false">
-            <f:ajax listener="#{newJSFManagedBean.checkFormat}">
-                <h:inputText id="aap" value="#{newJSFManagedBean.naam}"/>
-            </f:ajax>
-            <h:commandButton value="ok" actionListener="#{newJSFManagedBean.knopHandler}"/>
-        </h:form>
-    </ui:define>
+	<ui:define name="content">
+		<h:form prependId="false">
+		<ezcomp:subscribe  mylabel="hai"  action="#{newJSFManagedBean.knopHandler2}"/>
+		</h:form>
+		<ui:remove>
+			<h:form prependId="false">
+				<f:ajax listener="#{newJSFManagedBean.checkFormat}">
+					<h:inputText id="aap" value="#{newJSFManagedBean.naam}"/>
+				</f:ajax>
+				<h:commandButton value="ok" actionListener="#{newJSFManagedBean.knopHandler}"/>
+
+			</h:form>
+		</ui:remove>
+	</ui:define>
 
 </ui:composition>

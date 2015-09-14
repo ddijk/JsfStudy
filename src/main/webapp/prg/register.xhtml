@@ -4,24 +4,24 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html">
 
-	<body>
+    <body>
 
-		<ui:composition template="./../myTemplate.xhtml">
+        <ui:composition template="./../myTemplate.xhtml">
 
-			<ui:define name="top">
-				 Register
-			</ui:define>
+            <ui:define name="top">
+                Register
+            </ui:define>
 
-			<ui:define name="content">
-				<h:form>
-					naam:<h:inputText value="#{prgBean.naam}"/>
-					x<h:outputText value="#{prgBean.naam}"/>x
-					<h:commandButton value="ok" action="confirm?faces-redirect=true&amp;includeViewParams=true"/>
-				</h:form>
-				<ui:debug hotkey="y"/>
-			</ui:define>
+            <ui:define name="content">
+                <h:form>
+                    naam:<h:inputText value="#{prgBean.naam}"/>
+                    x<h:outputText value="#{prgBean.naam}"/>x
+                    <h:commandButton value="ok" action="xxconfirm?faces-redirect=true&amp;includeViewParams=true"/>
+                </h:form>
+                <ui:debug hotkey="y"/>
+            </ui:define>
 
-		</ui:composition>
+        </ui:composition>
 
-	</body>
+    </body>
 </html>

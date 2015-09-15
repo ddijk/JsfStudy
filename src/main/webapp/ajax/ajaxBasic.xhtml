@@ -5,22 +5,29 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core">
 
-    <ui:define name="top">
-        Basic Ajax
-    </ui:define>
+  <ui:define name="top">
+    Basic Ajax
+  </ui:define>
 
-    <ui:define name="content">
-        <h:form>
-            <h:outputLabel value="Getal 1"/>
-            <h:inputText id="getal1" value="#{calcManagedBean.getal1}"/>
-            <h:outputLabel value="Getal 2"/>
-            <h:inputText id="getal2" value="#{calcManagedBean.getal2}"/>
-            <h:commandButton value="calc" action="#{calcManagedBean.calculate()}">
-                <f:ajax execute="getal1 getal2" render="res"/>
-            </h:commandButton>
-            <h:outputText id="res" value="#{calcManagedBean.result}" />
-        </h:form>
+  <ui:define name="content">
+    <h:form>
+      <h:outputLabel value="Getal 1"/>
+      <h:inputText id="getal1" value="#{calcManagedBean.getal1}"/>
+      <h:outputLabel value="Getal 2"/>
+      <h:inputText id="getal2" value="#{calcManagedBean.getal2}"/>
+      <h:commandButton value="calc" action="#{calcManagedBean.calculate()}">
+        <f:ajax execute="getal1 getal2" render="res" listener="#{calcManagedBean.method1()}"/>
 
-    </ui:define>
+      </h:commandButton>
+      <h:outputText id="res" value="#{calcManagedBean.result}" />
+
+      <h:selectOneMenu value="#{calcManagedBean.selectedColor}">
+        <f:selectItems value="#{calcManagedBean.colors}"/>
+        <f:ajax listener="#{calcManagedBean.method1()}"/>
+
+      </h:selectOneMenu>
+    </h:form>
+
+  </ui:define>
 
 </ui:composition>

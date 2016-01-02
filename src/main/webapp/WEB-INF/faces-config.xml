@@ -11,11 +11,23 @@
 		</locale-config>
 	</application>
 	
-
+        <!--
+        <navigation-rule>
+            <from-view-id>redirect.xhtml</from-view-id>
+            <navigation-case>
+                <from-outcome>stap_twee</from-outcome>
+                <redirect include-view-params="true">
+                </redirect>
+                <to-view-id>step2.xhtml</to-view-id>
+            </navigation-case>
+        </navigation-rule>
+        -->
+        
+<!--
 	<lifecycle>
-      
+ 
 		<phase-listener>nl.LifecycleListener</phase-listener>   
 
 	</lifecycle>
-    
+    -->
 </faces-config>

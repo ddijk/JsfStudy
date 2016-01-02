@@ -19,7 +19,7 @@ import javax.inject.Inject;
 public class MyBean {
 
     Options options;
-    
+
     @Inject
     HelloBean helloBean;
 
@@ -32,7 +32,7 @@ public class MyBean {
                         .setType(SeriesType.LINE));
 
         options
-                .setTitle(new Title("My very own chart "+ helloBean.getName()));
+                .setTitle(new Title("My very own chart " + helloBean.getName()));
 
         options
                 .setxAxis(new Axis()

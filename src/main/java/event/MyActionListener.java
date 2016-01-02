@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package event;
 
 import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ActionListener;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -16,9 +16,11 @@ import javax.faces.event.ActionListener;
  */
 public class MyActionListener implements ActionListener {
 
-	@Override
-	public void processAction(ActionEvent event) throws AbortProcessingException {
-		System.out.println("MyActionListener called");
-	}
-	
+    private static final Logger LOGGER = Logger.getLogger(MyActionListener.class);
+
+    @Override
+    public void processAction(ActionEvent event) throws AbortProcessingException {
+        LOGGER.info("MyActionListener called");
+    }
+
 }

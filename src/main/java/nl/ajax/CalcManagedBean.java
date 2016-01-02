@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import javax.enterprise.inject.Model;
 import javax.inject.Named;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -17,6 +18,8 @@ import javax.inject.Named;
 @Named(value = "calcManagedBean")
 @Model
 public class CalcManagedBean {
+
+    private static final Logger LOGGER = Logger.getLogger(CalcManagedBean.class);
 
     int getal1;
     int getal2;
@@ -49,26 +52,26 @@ public class CalcManagedBean {
     }
 
     public int getResult() {
-        System.out.println("getal1 =" + getal1 + ", getal2=" + getal2);
+        LOGGER.info("getal1 =" + getal1 + ", getal2=" + getal2);
         return result;
     }
 
     public void setResult(int result) {
-        System.out.println("getal1 =" + getal1 + ", getal2=" + getal2);
+        LOGGER.info("getal1 =" + getal1 + ", getal2=" + getal2);
         this.result = result;
     }
 
     public void calculate() {
-        System.out.println("getal1 =" + getal1 + ", getal2=" + getal2);
+        LOGGER.info("getal1 =" + getal1 + ", getal2=" + getal2);
         result = getal1 + getal2;
     }
 
     public void method1() {
-        System.out.println("method1 called, color =" + selectedColor);
+        LOGGER.info("method1 called, color =" + selectedColor);
     }
 
     public void method2() {
-        System.out.println("method2 called");
+        LOGGER.info("method2 called");
     }
 
     public List<String> getColors() {
@@ -84,7 +87,7 @@ public class CalcManagedBean {
     }
 
     public void setSelectedColor(String selectedColor) {
-        System.out.println("color set to " + selectedColor);
+        LOGGER.info("color set to " + selectedColor);
         this.selectedColor = selectedColor;
     }
 

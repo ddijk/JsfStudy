@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -13,11 +14,20 @@
             .err {
                 color: red;
             }
-            
+
             .inf {
                 color: green;
             } 
         </style>
+        <f:event type="javax.faces.event.PostRestoreStateEvent" listener="#{cseListener.eventHandler}"/>
+        <f:event type="javax.faces.event.PreValidateEvent" listener="#{cseListener.eventHandler}"/>
+        <f:event type="javax.faces.event.PostValidateEvent" listener="#{cseListener.eventHandler}"/>
+        <f:event type="javax.faces.event.PostConstructViewMapEvent" listener="#{cseListener.eventHandler}"/>        
+        <f:event type="javax.faces.event.PreDestroyViewMapEvent" listener="#{cseListener.eventHandler}"/>
+        <f:event type="javax.faces.event.PostAddToViewEvent" listener="#{cseListener.eventHandler}"/>
+        <f:event type="javax.faces.event.PreRemoveFromViewEvent" listener="#{cseListener.eventHandler}"/>
+        <f:event type="javax.faces.event.PreRenderViewEvent" listener="#{cseListener.eventHandler}"/>
+        <f:event type="javax.faces.event.PreRenderComponentEvent" listener="#{cseListener.eventHandler}"/>
     </h:head>
 
     <h:body>
@@ -31,6 +41,7 @@
             <h:messages errorClass="err" infoClass="inf"/>
         </div>
 
+        <ui:debug hotkey="x"/>
     </h:body>
 
 </html>

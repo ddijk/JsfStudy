@@ -20,6 +20,10 @@
 					<h:commandButton value="custom actionListener" >
 						<f:actionListener type="event.MyActionListener"  />
 					</h:commandButton>
+                                        <h:outputText value="hallo" binding="#{beanValBean.hot}">
+                                            <f:event type="preRenderComponent" listener="#{beanValBean.preRender}"/>
+                                           
+                                        </h:outputText>
 				</h:form>
 			</ui:define>
 

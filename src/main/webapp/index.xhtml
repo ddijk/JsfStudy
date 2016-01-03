@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html" xmlns:wc="http://googlecode.com/wickedcharts"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title>Facelet Title</title>
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -18,16 +19,20 @@
 
         <h:form>
 
+		
             <h:inputText id="name" value="#{helloBean.name}"></h:inputText>
+            <h:inputText id="nameChart" value="#{myBean.title}"></h:inputText>
             <h:commandButton value="Welcome Me">
                 <f:ajax execute="name" render="output2" />
             </h:commandButton>
-            <h:commandButton value="Update chart">
-                <f:ajax execute="name" render="output" />
+            <h:commandButton value="Update chart, full page refresh"></h:commandButton>
+            <h:commandButton value="Update chart, ajax call">
+                <f:ajax execute="nameChart" render="mychart" />
             </h:commandButton>
-            <div id="output">
-                <wc:chart id="chart3" options="#{myBean.options}" />
-            </div>
+	    <ui:fragment id="mychart">
+               
+		    <wc:chart id="chart3" options="#{myBean.options}" />
+	    </ui:fragment>
             <h2><h:outputText id="output2" value="#{helloBean.sayWelcome}" /></h2>
         </h:form>
 

@@ -25,10 +25,21 @@ public class MyBB {
 
 	MyActionListener myActionListener;
 
+	String name;
+
 	@PostConstruct
 	public void init() {
 		System.out.println("Constr MyBB");
 		myActionListener = new MyActionListener();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		LOGGER.info("setting name to " + name);
+		this.name = name;
 	}
 
 	public MyActionListener getMyActionListener() {

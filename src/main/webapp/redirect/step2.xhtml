@@ -8,6 +8,7 @@
     <h:head>
         <f:metadata>
             <f:viewParam name="customerId"/>
+	    <f:viewParam name="aap"/>
             
         </f:metadata>
     
@@ -18,6 +19,7 @@
     <h:body>
         
         <h:outputText value="klantnr=#{customerId}"/>
+	<h:outputText value="naam=#{aap}"/>
         
     </h:body>
 </html>

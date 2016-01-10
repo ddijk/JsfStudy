@@ -7,8 +7,8 @@
 
     <h:head>
         <f:metadata>
-            <f:viewParam id="abc" name="len" value="#{newJSFManagedBean.naam}">
-                <f:validateLength minimum="3"  maximum="4" for="abc"/>
+            <f:viewParam name="naam"  value="#{newJSFManagedBean.naam}">
+                <f:validateLength minimum="3"  maximum="4"/>
             </f:viewParam>
              <f:viewParam id="leeftijd" name="leeftijd" value="#{newJSFManagedBean.age}">
                  <f:convertNumber integerOnly="true"/>

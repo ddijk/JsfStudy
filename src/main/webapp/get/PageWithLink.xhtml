@@ -14,7 +14,7 @@
 
     <h:body>
         <h:link value="link to get" outcome="getRequest">
-            <f:param name="len" value="#{newJSFManagedBean.naam}"/>
+            <f:param name="naam" value="#{newJSFManagedBean.naam}"/>
             <f:param name="leeftijd" value="#{newJSFManagedBean.age}"/>
         </h:link>
         <div>
@@ -25,6 +25,7 @@
 		<h:commandButton immediate="true" value="Cancel" action="/cancel"/>
             </h:form>
         </div>
-
+	 
+	  
     </h:body>
 </html>

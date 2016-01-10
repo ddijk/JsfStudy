@@ -14,58 +14,63 @@ import org.apache.log4j.Logger;
 @Model
 public class BeanValBean {
 
-    private static final Logger LOGGER = Logger.getLogger(BeanValBean.class);
+	private static final Logger LOGGER = Logger.getLogger(BeanValBean.class);
 
-    HtmlOutputText hot;
+	HtmlOutputText hot;
 
-    /**
-     * Creates a new instance of BeanValBean
-     */
-    public BeanValBean() {
-        LOGGER.info("constructor ");
+	/**
+	 * Creates a new instance of BeanValBean
+	 */
+	public BeanValBean() {
+		LOGGER.info("constructor ");
 
-    }
+	}
 
-    @Size(min = 2, max = 4, message = "{lengte.fout}")
-    String email;
+	@Size(min = 2, max = 4, message = "{lengte.fout}")
+	String email;
 
-    public String getEmail() {
-        return email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setEmail(String email) {
-        LOGGER.info("setting email to " + email);
-        this.email = email;
-    }
+	public void setEmail(String email) {
+		LOGGER.info("setting email to " + email);
+		this.email = email;
+	}
 
-    public void processClick(ActionEvent e) {
-        LOGGER.info("processClick called");
-    }
+	public void processClick(ActionEvent e) {
+		LOGGER.info("processClick called");
+	}
 
-    public void preRender(ComponentSystemEvent cse) {
+	public void preRender(ComponentSystemEvent cse) {
 
-        LOGGER.info("cse happend " + cse);
-        if (email == null) {
-            return;
-        }
-        if (email.equalsIgnoreCase("www") || email.equalsIgnoreCase("d@d.nl")) {
-            LOGGER.info("hide it");
-            cse.getComponent().setRendered(false);
-        } else {
-            LOGGER.info("show it");
+		LOGGER.info("cse happend " + cse);
+		if (email == null) {
+			return;
+		}
+		if (email.equalsIgnoreCase("www") || email.equalsIgnoreCase("d@d.nl")) {
+			LOGGER.info("hide it");
+			cse.getComponent().setRendered(false);
+		} else {
+			LOGGER.info("show it");
 
-        }
+		}
 
-    }
+	}
 
-    public HtmlOutputText getHot() {
-        return hot;
-    }
+	public HtmlOutputText getHot() {
+		return hot;
+	}
 
-    public void setHot(HtmlOutputText hott) {
-        LOGGER.info("setHot called");
-        hot = hott;
-        hot.setRendered(true);
-    }
+	public void setHot(HtmlOutputText hott) {
+		LOGGER.info("setHot called");
+		hot = hott;
+		hot.setRendered(true);
+	}
+
+	public String handleClick() {
+		LOGGER.info("handleClick ");
+		return "/index";
+	}
 
 }

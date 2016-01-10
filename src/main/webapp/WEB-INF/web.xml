@@ -21,4 +21,12 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
+    <security-role>
+        <description/>
+        <role-name>dev</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>ops</role-name>
+    </security-role>
 </web-app>

@@ -7,6 +7,11 @@
     <h:head>
         
         <f:view afterPhase="#{myBB.handleAfterPhaseEvent}" beforePhase="#{myBB.handleBeforePhaseEvent}"/>
+	<f:metadata>
+		<f:viewParam name="aap"/>
+		
+	</f:metadata>
+	 <f:event type="javax.faces.event.PostAddToViewEvent" listener="#{cseListener.eventHandler}"/>
     </h:head>
     
     
@@ -15,7 +20,8 @@
         
         <h:link outcome="step2" value="ok">
             <f:param name="customerId" value="88"/>
-        </h:link>
+	    <f:param name="aap" value="#{aap}"/>
+        </h:link> 
         
     </h:body>
 </html>

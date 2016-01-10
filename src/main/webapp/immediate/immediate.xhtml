@@ -14,8 +14,9 @@
 
 			<ui:define name="content">
 				<h:form>
-					<h:inputText value="#{beanValBean.email}" immediate="true"/>
-					<h:commandButton value="ok" immediate="true"/>
+					<h:inputText value="#{beanValBean.email}"  immediate="true"/>
+					
+					<h:commandButton value="ok"  action="#{beanValBean.handleClick}"/>
 				</h:form>
 			</ui:define>
 

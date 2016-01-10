@@ -6,6 +6,7 @@
 package nl;
 
 import javax.enterprise.inject.Model;
+import javax.faces.component.UIOutput;
 import javax.faces.event.ComponentSystemEvent;
 import org.apache.log4j.Logger;
 
@@ -16,12 +17,17 @@ import org.apache.log4j.Logger;
 @Model
 public class CseListener {
 
-    private static final Logger LOGGER = Logger.getLogger(CseListener.class);
+	private static final Logger LOGGER = Logger.getLogger(CseListener.class);
 
-    public void eventHandler(ComponentSystemEvent cse) {
+	public void eventHandler(ComponentSystemEvent cse) {
 
-        LOGGER.info("CSE happend " + cse);
+		LOGGER.info("CSE happend " + cse);
 
-    }
+		if (cse.getComponent() instanceof UIOutput) {
+			UIOutput out = (UIOutput) cse.getComponent();
+			LOGGER.info("value=  " + out.getValue());
+		}
+
+	}
 
 }

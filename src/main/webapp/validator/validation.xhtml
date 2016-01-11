@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-                template="./myTemplate.xhtml"
+                template="/myTemplate.xhtml"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html">
 
@@ -11,7 +11,9 @@
 
     <ui:define name="content">
         <h:form>
-            <h:inputText id="naam" value="#{myFacesMssBean.name}" required="true"><f:validateLength minimum="2"/></h:inputText>
+		<h:messages />
+            <h:inputText id="naam" value="#{newJSFManagedBean.naam}" required="true"><f:validateLength minimum="2"/></h:inputText>
+	    <h:inputText  id="achternaam" value="#{newJSFManagedBean.naam}" validator="myvalidator"/>
             <h:commandButton value="submit"></h:commandButton>
         </h:form>
     </ui:define>

@@ -8,7 +8,13 @@
 		<locale-config>
 			<default-locale>en</default-locale>		
 			<supported-locale>de</supported-locale>
+			<supported-locale>nl</supported-locale>
 		</locale-config>
+		<message-bundle>nl.notices</message-bundle>
+		<resource-bundle>
+			<base-name>nl.berichten</base-name>
+			<var>msg</var>
+		</resource-bundle>
 	</application>
 	
 	

@@ -5,7 +5,9 @@
  */
 package bb;
 
+import java.util.Locale;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.event.ValueChangeEvent;
@@ -20,6 +22,15 @@ import javax.inject.Named;
 public class NewJSFManagedBean {
 
 	String naam;
+	String achternaam;
+
+	public String getAchternaam() {
+		return achternaam;
+	}
+
+	public void setAchternaam(String achternaam) {
+		this.achternaam = achternaam;
+	}
 	int age;
 
 	/**
@@ -34,6 +45,8 @@ public class NewJSFManagedBean {
 	}
 
 	public void setNaam(String naam) {
+		Locale locale = FacesContext.getCurrentInstance().getViewRoot().getLocale();
+		System.out.println("Locale is " + locale);
 		this.naam = naam;
 	}
 

@@ -5,16 +5,23 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core">
 
-    <ui:define name="top">
-        top
-    </ui:define>
+	<ui:define name="top">
+		top
+	</ui:define>
 
-    <ui:define name="content">
-        <h:form>
-            <h:commandButton value="ok">
-                <f:actionListener binding="#{myBB.myActionListener}"/>
-            </h:commandButton>
-        </h:form>
-    </ui:define>
+	<ui:define name="content">
+		<h:form>
+			<h:outputText value="#{msg.groet}"/>
+			<h:commandButton value="nested actionlistener">
+				<f:actionListener binding="#{myBB.myActionListener}"/>
+			</h:commandButton>
+
+			
+			<h:commandButton value="actionListenr" actionListener="#{newJSFManagedBean.knopHandler}"/>
+
+			<h:commandButton value="action" action="#{newJSFManagedBean.knopHandler2}"/>
+
+		</h:form>
+	</ui:define>
 
 </ui:composition>

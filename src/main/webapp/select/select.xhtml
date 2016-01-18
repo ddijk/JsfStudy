@@ -29,7 +29,7 @@
 				<br />
 				<h:form>
 					<h:selectManyCheckbox id="pizzaModeltoppings" value="#{pizzaModelBean.selectedToppings}" converter="pizzaConverter">
-						<f:selectItems value="#{pizzaModelBean.toppings}" var="p" itemLabel="#{p.descr}" itemValue="#{p.id}" />
+						<f:selectItems value="#{pizzaModelBean.toppings}" var="p" itemLabel="#{p.descr}" itemValue="#{p}" />
 					</h:selectManyCheckbox>
 					<h:commandButton value="ok model"/>
 				</h:form>

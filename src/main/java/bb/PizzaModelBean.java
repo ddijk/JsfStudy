@@ -36,6 +36,9 @@ public class PizzaModelBean {
 	}
 
 	public PizzaTopping[] getSelectedToppings() {
+		if (selectedToppings != null) {
+			LOGGER.info("getSelectedToppings " + Arrays.asList(selectedToppings));
+		}
 		return selectedToppings;
 	}
 

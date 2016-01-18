@@ -23,16 +23,19 @@ public class PIzzaToppingConverter implements Converter {
 
 	@Override
 	public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
-		LOGGER.info("getAsObject:" + string);
+
 		int id = Integer.parseInt(string);
-		return PizzaTopping.getToppings().get(id);
+		final PizzaTopping pt = PizzaTopping.getToppings().get(id);
+		LOGGER.info("getAsObject:" + string + ", " + pt);
+		return pt;
 	}
 
 	@Override
 	public String getAsString(FacesContext fc, UIComponent uic, Object o) {
+		System.out.println(o);
 		LOGGER.info("getAsString:" + o);
-//		PizzaTopping pt = (PizzaTopping) o;
-//		return pt.getDescr();
+		//PizzaTopping pt = (PizzaTopping) o;
+		//return pt.getDescr();
 		return "" + o;
 
 	}

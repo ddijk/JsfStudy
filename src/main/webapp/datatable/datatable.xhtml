@@ -14,15 +14,18 @@
 			</ui:define>
 
 			<ui:define name="content">
-				<h:form>
-					<h:dataTable binding="#{datatableBean.persons}" value="#{datatableBean.personen}" var="persoon">
+				<h:form title="my_form_title" style="mystyle" styleClass="mystyleclass"> 
+					<h:dataTable binding="#{datatableBean.persons}" value="#{datatableBean.personen}" var="persoon" columnClasses="list-row-odd, list-row-even">
 						<h:column><f:facet name="header">voornaam</f:facet>
 							#{persoon.firstName}</h:column>
 						<h:column><f:facet name="header">achternaam</f:facet>#{persoon.lastName}</h:column>
 						<h:column><f:facet name="header">edit</f:facet><h:commandButton value="edit" action="#{datatableBean.rowAction}"/></h:column>
 					</h:dataTable>
 				</h:form>
-				<h:outputText value="#{msg}"/>
+				<ui:remove>
+				<h:outputText value="#{msg.groet}"/>
+				</ui:remove>
+				<h:outputText value="#{msg.groet} nummer 2"/>
 			</ui:define>
 
 		</ui:composition>

@@ -2,25 +2,40 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
-    <body>
+	<body>
 
-        <ui:composition template="./../myTemplate.xhtml">
+		<ui:composition template="./../myTemplate.xhtml">
 
-            <ui:define name="top">
-                top
-            </ui:define>
+			<ui:define name="top">
+				top
+			</ui:define>
 
-            <ui:define name="content">
-                <h:form>
-                    <h:inputText value="#{selectBacking.letter}"/>
-                    <h:outputText value="#{selectBacking.letter}"/>
-                    <h:commandButton value="ok"/>
-                </h:form>
-            </ui:define>
+			<ui:define name="content">
+				<h:form>
+					<h:inputText value="#{selectBacking.letter}"/>
+					<h:outputText value="#{selectBacking.letter}"/>
+					<h:commandButton value="ok"/>
+				</h:form>
 
-        </ui:composition>
+				<h:form>
+					<h:selectManyCheckbox id="pizzatoppings" value="#{pizzaBean.toppings}">
+						<f:selectItems value="#{pizzaBean.toppingsList}" />
+					</h:selectManyCheckbox>
+					<h:commandButton value="ok"/>
+				</h:form>
+				<br />
+				<h:form>
+					<h:selectManyCheckbox id="pizzaModeltoppings" value="#{pizzaModelBean.selectedToppings}" converter="pizzaConverter">
+						<f:selectItems value="#{pizzaModelBean.toppings}" var="p" itemLabel="#{p.descr}" itemValue="#{p.id}" />
+					</h:selectManyCheckbox>
+					<h:commandButton value="ok model"/>
+				</h:form>
+			</ui:define>
 
-    </body>
+		</ui:composition>
+
+	</body>
 </html>

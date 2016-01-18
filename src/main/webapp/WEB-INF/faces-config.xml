@@ -6,7 +6,7 @@
 
 	<application>
 		<locale-config>
-			<default-locale>en</default-locale>		
+			<default-locale>nl</default-locale>		
 			<supported-locale>de</supported-locale>
 			<supported-locale>nl</supported-locale>
 		</locale-config>
@@ -14,6 +14,7 @@
 		<resource-bundle>
 			<base-name>nl.berichten</base-name>
 			<var>msg</var>
+			
 		</resource-bundle>
 	</application>
 	

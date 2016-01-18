@@ -20,6 +20,10 @@
 			<h:commandButton value="actionListenr" actionListener="#{newJSFManagedBean.knopHandler}"/>
 
 			<h:commandButton value="action" action="#{newJSFManagedBean.knopHandler2}"/>
+			
+			<h:commandButton value="property actionlistener" action="#{newJSFManagedBean.knopHandler2}">
+				<f:setPropertyActionListener value="aap" target="#{newJSFManagedBean.achternaam}"/>
+			</h:commandButton>
 
 		</h:form>
 	</ui:define>

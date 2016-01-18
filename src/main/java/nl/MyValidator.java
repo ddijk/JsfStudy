@@ -5,6 +5,7 @@
  */
 package nl;
 
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -28,11 +29,17 @@ public class MyValidator implements Validator {
 	public void validate(FacesContext fc, UIComponent uic, Object o) throws ValidatorException {
 		LOGGER.info("o=" + o);
 		if (o == null || ((String) o).length() < 3) {
+			final Locale locale = fc.getViewRoot().getLocale();
 			//throw new ValidatorException(new FacesMessage("{groet}", "{groet}"));
-			ResourceBundle bundle = ResourceBundle.getBundle("nl.notices", fc.getViewRoot().getLocale());
-			ResourceBundle bundle2 = ResourceBundle.getBundle("nl.berichten", fc.getViewRoot().getLocale());
+			ResourceBundle bundle = ResourceBundle.getBundle("nl.notices", locale);
 
-			throw new ValidatorException(new FacesMessage(bundle.getString("groet") + "_" + bundle2.getString("groet")));
+			ResourceBundle bundle2 = ResourceBundle.getBundle("nl.berichten", locale);
+			final String msg = bundle.getString("groet") + "_" + bundle2.getString("groet");
+			final String clientId = uic.getClientId();
+			LOGGER.info("locale is " + locale + ", message is " + msg + ", clientId:" + clientId);
+
+			//throw new ValidatorException(new FacesMessage(FacesMessage.SEVERITY_ERROR, msg, "detail message blah blah"));
+			throw new ValidatorException(new FacesMessage("my summary", "my detail"));
 		}
 	}
 

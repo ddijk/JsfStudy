@@ -3,19 +3,34 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="/myTemplate.xhtml"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html">
+                xmlns:h="http://java.sun.com/jsf/html" xmlns="http://www.w3.org/1999/xhtml">
 
-    <ui:define name="top">
-        top
-    </ui:define>
+	<ui:define name="top">
+		top
+	</ui:define>
 
-    <ui:define name="content">
-        <h:form>
-		<h:messages />
-            <h:inputText id="naam" value="#{newJSFManagedBean.naam}" required="true"><f:validateLength minimum="2"/></h:inputText>
-	    <h:inputText  id="achternaam" value="#{newJSFManagedBean.naam}" validator="myvalidator"/>
-            <h:commandButton value="submit"></h:commandButton>
-        </h:form>
-    </ui:define>
+	<ui:define name="content">
+		<h:form>
+			<h:messages  />
+			naam:   <h:inputText id="naam" value="#{newJSFManagedBean.naam}" required="true"><f:validateLength minimum="2"/></h:inputText>
+			<h:message for="naam" tooltip="false"/>
+			bijnaam: <h:inputText  id="bijnaam" value="#{newJSFManagedBean.bijnaam}" validator="myvalidator"/>
+			<h:message for="bijnaam" tooltip="true" />
+			city: <h:inputText  id="city" value="#{newJSFManagedBean.city}" >
+				<f:validateLength maximum="3" minimum="1" />
+
+			</h:inputText>
+			achternaam:   <h:inputText id="achternaam" value="#{newJSFManagedBean.achternaam}" required="true" validator="myvalidator" validatorMessage="jammer"/>
+			<h:message for="achternaam" tooltip="true"  styleClass="bee"/>
+			<h:commandLink value="ok">
+				<f:setPropertyActionListener value="aap" target="#{newJSFManagedBean.achternaam}"/>
+			</h:commandLink>
+			<h:inputText value="#{newJSFManagedBean.age}"/>
+			<h:outputLabel for="smoker" value="smoker?"/>
+			<h:selectBooleanCheckbox value="#{newJSFManagedBean.smoker}"/>
+			<span>   </span>
+			<h:commandButton value="submit"></h:commandButton>
+		</h:form>
+	</ui:define>
 
 </ui:composition>

@@ -33,6 +33,11 @@
 					</h:selectManyCheckbox>
 					<h:commandButton value="ok model"/>
 				</h:form>
+				<h:form>
+					<h:inputText id="inp1" value="#{pizzaModelBean.naam}" converter="naamConverter"/>
+						
+					<h:commandButton value="ok text"/>
+				</h:form>
 			</ui:define>
 
 		</ui:composition>

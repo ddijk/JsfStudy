@@ -5,9 +5,7 @@
  */
 package bb;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import model.PizzaTopping;
@@ -17,21 +15,24 @@ import org.apache.log4j.Logger;
 
 public class PizzaModelBean {
 
-	List<PizzaTopping> toppings = new ArrayList<>();
+	PizzaTopping[] toppings = new PizzaTopping[4];
 
 	PizzaTopping[] selectedToppings;
 	private static final Logger LOGGER = Logger.getLogger(PizzaModelBean.class);
 
+	PizzaTopping naam;
+
 	@PostConstruct
 	void setup() {
-		toppings.addAll(PizzaTopping.getToppings().values());
+		PizzaTopping.getToppings().values().toArray(toppings);
+
 	}
 
-	public List<PizzaTopping> getToppings() {
+	public PizzaTopping[] getToppings() {
 		return toppings;
 	}
 
-	public void setToppings(List<PizzaTopping> toppings) {
+	public void setToppings(PizzaTopping[] toppings) {
 		this.toppings = toppings;
 	}
 
@@ -45,6 +46,16 @@ public class PizzaModelBean {
 	public void setSelectedToppings(PizzaTopping[] selectedToppings) {
 		LOGGER.info("setTsetSelectedToppingsoppings " + Arrays.asList(selectedToppings));
 		this.selectedToppings = selectedToppings;
+	}
+
+	public PizzaTopping getNaam() {
+		LOGGER.info("getNaam: " + naam);
+		return naam;
+	}
+
+	public void setNaam(PizzaTopping naam) {
+		LOGGER.info("setNaam: " + naam);
+		this.naam = naam;
 	}
 
 }

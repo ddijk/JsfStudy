@@ -16,27 +16,22 @@ import org.apache.log4j.Logger;
  *
  * @author dick
  */
-@FacesConverter(value = "pizzaConverter")
-public class PIzzaToppingConverter implements Converter {
+@FacesConverter(value = "naamConverter")
+public class NaamConverter implements Converter {
 
-	private static final Logger LOGGER = Logger.getLogger(PIzzaToppingConverter.class);
+	private static final Logger LOGGER = Logger.getLogger(NaamConverter.class);
 
 	@Override
 	public Object getAsObject(FacesContext fc, UIComponent uic, String string) {
-
-		int id = Integer.parseInt(string);
-		final PizzaTopping pt = PizzaTopping.getToppings().get(id);
-		LOGGER.info("getAsObject:" + string + ", " + pt);
-		return pt;
+		LOGGER.info("getAsObject:" + string);
+		return PizzaTopping.getToppings().get(Integer.parseInt(string));
 	}
 
 	@Override
 	public String getAsString(FacesContext fc, UIComponent uic, Object o) {
-
 		LOGGER.info("getAsString:" + o.getClass());
 		PizzaTopping pt = (PizzaTopping) o;
 		return "" + pt.getId();
-
 	}
 
 }

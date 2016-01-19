@@ -5,7 +5,9 @@
  */
 package bb;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import model.PizzaTopping;
@@ -15,24 +17,23 @@ import org.apache.log4j.Logger;
 
 public class PizzaModelBean {
 
-	PizzaTopping[] toppings = new PizzaTopping[4];
+	List<PizzaTopping> toppings = new ArrayList<>();
 
 	PizzaTopping[] selectedToppings;
 	private static final Logger LOGGER = Logger.getLogger(PizzaModelBean.class);
 
-	PizzaTopping naam;
+	String naam;
 
 	@PostConstruct
 	void setup() {
-		PizzaTopping.getToppings().values().toArray(toppings);
-
+		toppings.addAll(PizzaTopping.getToppings().values());
 	}
 
-	public PizzaTopping[] getToppings() {
+	public List<PizzaTopping> getToppings() {
 		return toppings;
 	}
 
-	public void setToppings(PizzaTopping[] toppings) {
+	public void setToppings(List<PizzaTopping> toppings) {
 		this.toppings = toppings;
 	}
 
@@ -44,16 +45,16 @@ public class PizzaModelBean {
 	}
 
 	public void setSelectedToppings(PizzaTopping[] selectedToppings) {
-		LOGGER.info("setTsetSelectedToppingsoppings " + Arrays.asList(selectedToppings));
+		LOGGER.info("setSelectedToppingsoppings " + Arrays.asList(selectedToppings));
 		this.selectedToppings = selectedToppings;
 	}
 
-	public PizzaTopping getNaam() {
+	public String getNaam() {
 		LOGGER.info("getNaam: " + naam);
 		return naam;
 	}
 
-	public void setNaam(PizzaTopping naam) {
+	public void setNaam(String naam) {
 		LOGGER.info("setNaam: " + naam);
 		this.naam = naam;
 	}

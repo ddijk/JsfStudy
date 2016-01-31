@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:knoppen="http://java.sun.com/jsf/composite/buttons"
+      xmlns:knoppen="http://java.sun.com/jsf/composite/controls"     
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
 
@@ -11,17 +11,28 @@
 		<ui:composition template="./../myTemplate.xhtml">
 
 			<ui:define name="top">
-				top
+				<h:panelGroup layout="block"><h:outputText value="My header"/></h:panelGroup>
 			</ui:define>
 
 			<ui:define name="content">
 				<h1> Test knoppen uit CC</h1>
 				<h:form>
 				<knoppen:buttons>
-					<f:actionListener for="okKnop" binding="#{buttonBB.okHandler}"/>
+					<f:actionListener for="okKnop " binding="#{buttonBB.okHandler}"/>
 					<f:actionListener for="cancelButton" binding="#{buttonBB.cancelHandler}"/>
 				</knoppen:buttons>
 				<h:inputText value="#{buttonBB.timestamp}"/>
+				</h:form>
+				
+				<h:form>
+					<knoppen:invoer comment="#{buttonBB.myComment}">
+						<f:facet name="header"><h:panelGroup layout="block"><h:outputText value="My second facet"/></h:panelGroup></f:facet>
+						<f:valueChangeListener for="naamVeld" binding="#{buttonBB.veldHandler}"/>
+						
+						<f:converter for="tijd" binding="#{buttonBB.myConverter}" />
+					</knoppen:invoer>
+					
+					<h:commandButton value="ok"/>
 				</h:form>
 			</ui:define>
 

@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
 	<body>
 
@@ -14,9 +15,24 @@
 
 			<ui:define name="content">
 				<h:form>
+					<h:dataTable>
+						<f:facet name="header"><h:panelGroup layout="block"><h:outputText value="My second facet"/></h:panelGroup></f:facet>
+					</h:dataTable>
 					age met comp binding:<h:inputText  binding="#{convBean.inp1}"/>
 					<br></br>
 					age with value binding:<h:inputText value="#{convBean.age}"/>
+					<br></br>
+					
+					percentage:
+					<h:inputText value="#{convBean.percentage}">
+						<f:validateDoubleRange minimum="0" maximum="1"/>
+						<f:convertNumber maxFractionDigits="5" />
+					</h:inputText>
+					
+					<h:outputText value="#{convBean.percentage}">
+						<f:convertNumber type="percent" maxFractionDigits="2"/>
+					</h:outputText>
+					
 					<h:commandButton value="OK" action="#{convBean.show}"/>
 				</h:form>
 			</ui:define>

@@ -14,23 +14,33 @@ import org.apache.log4j.Logger;
 
 public class LifecycleListener implements PhaseListener {
 
-    private static final Logger LOGGER = Logger.getLogger(LifecycleListener.class);
+	private static final Logger LOGGER = Logger.getLogger(LifecycleListener.class);
 
-    public PhaseId getPhaseId() {
-        return PhaseId.ANY_PHASE;
-    }
+	public PhaseId getPhaseId() {
+		return PhaseId.ANY_PHASE;
+	}
 
-    public void beforePhase(PhaseEvent event) {
-        LOGGER.info("START PHASE " + event.getPhaseId());
-        if (event.getPhaseId() == PhaseId.RESTORE_VIEW) {
-            FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_INFO, "mijn bericht from LifecycleListener", "mijn detail from LifecycleListener");
-            FacesContext.getCurrentInstance().addMessage(null, fm);
-        }
-    }
+	public void beforePhase(PhaseEvent event) {
 
-    public void afterPhase(PhaseEvent event) {
-        LOGGER.info("END PHASE " + event.getPhaseId());
+		LOGGER.info("START PHASE " + event.getPhaseId() + ", locale=" + getLocale());
+		if (event.getPhaseId() == PhaseId.RESTORE_VIEW) {
+			FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_INFO, "mijn bericht from LifecycleListener", "mijn detail from LifecycleListener");
+			FacesContext.getCurrentInstance().addMessage(null, fm);
+		}
+	}
 
-    }
+	private static String getLocale() {
+		try {
+			return FacesContext.getCurrentInstance().getViewRoot().getLocale().toString();
+		} catch (NullPointerException npe) {
+			return "getLocalel failed";
+		}
+
+	}
+
+	public void afterPhase(PhaseEvent event) {
+		LOGGER.info("END PHASE " + event.getPhaseId());
+
+	}
 
 }

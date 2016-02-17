@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<body>
+
+		<h1>Before Composition</h1>
+
+		<ul><li>een</li><li>twee</li><li>drie</li></ul>
+
+		<h1>After Composition</h1>
+
+		<h1>Before Decorate 2</h1>
+
+		<ui:decorate template="./../myTemplate.xhtml">
+			<h1>Binnen decorate, before top. NOT RENDERED</h1>
+			<ui:define name="top">
+				Decorate top
+			</ui:define>
+
+			<ui:define name="content">
+				Decorate content
+			</ui:define>
+			<h1>Binnen decorate, after content. NOT RENDERED</h1>
+		</ui:decorate>
+		<h1>After Decorate</h1>
+
+	</body>
+</html>

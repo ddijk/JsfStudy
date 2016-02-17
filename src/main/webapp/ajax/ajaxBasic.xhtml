@@ -3,7 +3,7 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 template="./../myTemplate.xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:myc="http://java.sun.com/jsf/composite/ezcomp">
 
   <ui:define name="top">
     Basic Ajax
@@ -26,6 +26,7 @@
         <f:ajax listener="#{calcManagedBean.method1()}"/>
 
       </h:selectOneMenu>
+    
     </h:form>
 
   </ui:define>

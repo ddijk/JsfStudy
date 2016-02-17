@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+	<!-- INTERFACE -->
+	<cc:interface>
+		<cc:editableValueHolder name="my-select" />
+		<cc:actionSource name="okBtn"/>
+		<cc:attribute name="gekozenKleur"/>
+	</cc:interface>
+
+	<!-- IMPLEMENTATION -->
+	<cc:implementation>
+		<h:panelGrid>
+
+			<h:selectOneMenu id="my-select" value="#{cc.attrs.gekozenKleur}">
+				<f:selectItems value="#{calcManagedBean.colors}"/>
+			</h:selectOneMenu>
+			<h:outputLabel for="gekozen-kleur-print" value="gekozen kleur"/>
+			<h:outputText id="gekozen-kleur-print" value="#{cc.attrs.gekozenKleur}"/>
+			<h:commandButton value="OK" id="okBtn"/>
+
+		</h:panelGrid>
+	</cc:implementation>
+</html>

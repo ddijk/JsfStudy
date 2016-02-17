@@ -6,19 +6,11 @@
 
 	<!-- INTERFACE -->
 	<cc:interface>
-		<cc:editableValueHolder name="naamVeld" />
-		<cc:valueHolder name="tijd"/>
-		<cc:attribute name="comment" />
-		<cc:facet name="header"/>
+		<cc:editableValueHolder name="inp"  />
 	</cc:interface>
 
 	<!-- IMPLEMENTATION -->
 	<cc:implementation>
-		<div id="#{cc.clientId}:velden">
-			<cc:renderFacet name="header"/>
-			<h:outputLabel for="naamVeld" value="naam:"/>
-			<h:inputText id="naamVeld"/>
-			<h:outputText id="tijd" value="#{cc.attrs.comment}" />
-		</div>
+		<h:inputText id="inp"/>
 	</cc:implementation>
 </html>

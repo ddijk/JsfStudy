@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+	<body>
+		<h1>Binnen Composition, before composition</h1>
+		<ui:composition template="./../myTemplate.xhtml">
+			<h1>Binnen Composition, before top</h1>
+			<ui:define name="top">
+				Composition topp
+			</ui:define>
+
+			<ui:define name="content">
+				Composition content
+			</ui:define>
+			<h1>Binnen Composition, after content</h1>
+		</ui:composition>
+		<h1>Binnen Composition, after composition</h1>
+
+	</body>
+</html>

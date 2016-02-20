@@ -17,10 +17,10 @@
 			<ui:define name="content">
 				<h:form>
 					<div>Here we go</div>
-					<myc:input>
+					<myc:input id="myId">
 						<f:valueChangeListener for="inp" binding="#{calcManagedBean.vcl}"/>
 					</myc:input>
-					<h:commandButton value="ok"/>
+					<h:commandButton value="ok" actionListener="#{buttonBB.okHandler.processAction}"/>
 				</h:form>
 			</ui:define>
 

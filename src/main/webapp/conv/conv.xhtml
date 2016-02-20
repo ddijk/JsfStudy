@@ -33,6 +33,11 @@
 						<f:convertNumber type="percent" maxFractionDigits="2"/>
 					</h:outputText>
 					
+					<h:inputText value="#{convBean.person}">
+						<f:converter converterId="personConverter"/>
+						<f:validateRequired 
+					</h:inputText>
+					
 					<h:commandButton value="OK" action="#{convBean.show}"/>
 				</h:form>
 			</ui:define>

@@ -18,6 +18,13 @@
 		</resource-bundle>
 	</application>
 	
+	<converter>
+		<converter-id>personConverter</converter-id>
+		<converter-class>conv.PersonConverter</converter-class>		
+	</converter>
+	
+
+		
 	
         <!--
         <navigation-rule>
@@ -32,13 +39,10 @@
         -->
 
 	<lifecycle>
- <!--
+
 		<phase-listener>nl.LifecycleListener</phase-listener>   
--->
+
 	</lifecycle>
     
-    <component>
-      <component-type>com.googlecode.wickedcharts.Chart</component-type>
-      <component-class>com.googlecode.wickedcharts.jsf21.UIChart</component-class>
-  </component>
+
 </faces-config>

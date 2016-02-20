@@ -4,6 +4,17 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core">
+	<h:head>
+		 <f:event type="javax.faces.event.PostRestoreStateEvent" listener="#{cseListener.eventHandler}"/>
+        <f:event type="javax.faces.event.PreValidateEvent" listener="#{cseListener.eventHandler}"/>
+        <f:event type="javax.faces.event.PostValidateEvent" listener="#{cseListener.eventHandler}"/>
+        <f:event type="javax.faces.event.PostConstructViewMapEvent" listener="#{cseListener.eventHandler}"/>        
+        <f:event type="javax.faces.event.PreDestroyViewMapEvent" listener="#{cseListener.eventHandler}"/>
+        <f:event type="javax.faces.event.PostAddToViewEvent" listener="#{cseListener.eventHandler}"/>
+        <f:event type="javax.faces.event.PreRemoveFromViewEvent" listener="#{cseListener.eventHandler}"/>
+        <f:event type="javax.faces.event.PreRenderViewEvent" listener="#{cseListener.eventHandler}"/>
+        <f:event type="javax.faces.event.PreRenderComponentEvent" listener="#{cseListener.eventHandler}"/>
+	</h:head>
 
 	<body>
 

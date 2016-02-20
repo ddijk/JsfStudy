@@ -23,6 +23,17 @@ public class ConvBean {
 
 	private static final Logger LOGGER = Logger.getLogger(ConvBean.class);
 
+	Person person;
+
+	public Person getPerson() {
+		return person;
+	}
+
+	public void setPerson(Person person) {
+		LOGGER.info("setPerson called for " + person);
+		this.person = person;
+	}
+
 	@PostConstruct
 	void init() {/*
 		 FacesContext context = FacesContext.getCurrentInstance();

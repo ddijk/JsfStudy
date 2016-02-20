@@ -32,9 +32,9 @@
         -->
 
 	<lifecycle>
- 
+ <!--
 		<phase-listener>nl.LifecycleListener</phase-listener>   
-
+-->
 	</lifecycle>
     
     <component>

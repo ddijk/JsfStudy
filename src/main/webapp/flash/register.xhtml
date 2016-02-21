@@ -15,7 +15,7 @@
 			<ui:define name="content">
 				<h:form>
 					<h:outputLabel value="Naam"></h:outputLabel>
-					<h:inputText label="dick" id="naam" value="#{flash.naam}"/>
+					<h:inputText label="dick" id="naam" value="#{requestScope.naam}"/>
 					<h:commandButton value="Registreer" action="confirm?faces-redirect=true&amp;includeViewParams=true"/>
 				</h:form>
 			</ui:define>

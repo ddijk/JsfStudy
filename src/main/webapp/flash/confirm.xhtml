@@ -6,7 +6,7 @@
       xmlns:f="http://java.sun.com/jsf/core">
 	<h:head>
 		<f:metadata>
-			<f:viewParam name="naam" value="#{flash.naam}"/>
+			<f:viewParam name="naam" value="#{newJSFManagedBean.naam}"/>
 		</f:metadata>
 	</h:head>
 
@@ -19,7 +19,7 @@
 
 			<ui:define name="content">
 				<h:form>
-				Naam: <h:outputText value="#{flash.keep.naam}"/>
+				Naam: <h:outputText value="#{flash.naam}"/>
 				<h:commandButton value="Edit" action="register?faces-redirect=true"/>
 				<h:commandButton value="Confirm" action="done?faces-redirect=true"/>
 				</h:form>

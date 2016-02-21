@@ -25,7 +25,11 @@
 	
 
 		
-	
+	<validator>
+		<validator-id>myPostCodeValidator</validator-id>
+		<validator-class>nl.validation.MyPostcodeValidateur</validator-class>
+			
+	</validator>
         <!--
         <navigation-rule>
             <from-view-id>redirect.xhtml</from-view-id>

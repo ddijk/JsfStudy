@@ -32,6 +32,25 @@ public class NewJSFManagedBean {
 	String city;
 	int age;
 	boolean smoker;
+	String postcode;
+	String huisdier;
+
+	public String getHuisdier() {
+		return huisdier;
+	}
+
+	public void setHuisdier(String huisdier) {
+		LOGGER.info("setHuisdier : " + huisdier);
+		this.huisdier = huisdier;
+	}
+
+	public String getPostcode() {
+		return postcode;
+	}
+
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
+	}
 
 	public boolean isSmoker() {
 		return smoker;

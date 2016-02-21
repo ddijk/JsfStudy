@@ -11,8 +11,8 @@
 
 	<ui:define name="content">
 		<h:form>
-			<h:messages  />
-			naam:   <h:inputText id="naam" value="#{newJSFManagedBean.naam}" required="true"><f:validateLength minimum="2"/></h:inputText>
+			
+			naam:   <h:inputText id="naam" value="#{newJSFManagedBean.naam}" required="true"><f:validateLength  minimum="2"/></h:inputText>
 			<h:message for="naam" tooltip="false"/>
 			bijnaam: <h:inputText  id="bijnaam" value="#{newJSFManagedBean.bijnaam}" validator="myvalidator"/>
 			<h:message for="bijnaam" tooltip="true" />
@@ -23,13 +23,21 @@
 			achternaam:   <h:inputText id="achternaam" value="#{newJSFManagedBean.achternaam}" required="true" validator="myvalidator" validatorMessage="jammer"/>
 			<h:message for="achternaam" tooltip="true"  styleClass="bee"/>
 			<h:commandLink value="ok">
-				<f:setPropertyActionListener value="aap" target="#{newJSFManagedBean.achternaam}"/>
+				<f:setPropertyActionListener value="aap" target="#{newJSFManagedBean.huisdier}"/>
+				
 			</h:commandLink>
 			<h:inputText value="#{newJSFManagedBean.age}"/>
 			<h:outputLabel for="smoker" value="smoker?"/>
-			<h:selectBooleanCheckbox value="#{newJSFManagedBean.smoker}"/>
+			<h:selectBooleanCheckbox id="smoker" value="#{newJSFManagedBean.smoker}"/>
 			<span>   </span>
+			
 			<h:commandButton value="submit"></h:commandButton>
+			
+			
+		</h:form>
+		<h:form>
+			<h:outputLabel value="Postode" for="postcode"/><h:inputText id="postcode" validator="myPostCodeValidator" validatorMessage="Ongeldige postcode"></h:inputText>
+			<h:commandButton value="Validate Postcode"></h:commandButton>
 		</h:form>
 	</ui:define>
 

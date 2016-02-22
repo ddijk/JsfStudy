@@ -22,7 +22,6 @@ public class LifecycleListener implements PhaseListener {
 
 	public void beforePhase(PhaseEvent event) {
 
-		LOGGER.info("START PHASE " + event.getPhaseId() + ", locale=" + getLocale());
 		if (event.getPhaseId() == PhaseId.RESTORE_VIEW) {
 			FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_INFO, "mijn bericht from LifecycleListener", "mijn detail from LifecycleListener");
 			FacesContext.getCurrentInstance().addMessage(null, fm);
@@ -39,6 +38,8 @@ public class LifecycleListener implements PhaseListener {
 	}
 
 	public void afterPhase(PhaseEvent event) {
+
+		LOGGER.info("START PHASE " + event.getPhaseId() + ", locale=" + getLocale());
 		LOGGER.info("END PHASE " + event.getPhaseId());
 
 	}

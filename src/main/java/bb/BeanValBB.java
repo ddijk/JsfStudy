@@ -5,6 +5,7 @@
  */
 package bb;
 
+import java.util.Locale;
 import javax.enterprise.inject.Model;
 import javax.validation.constraints.Size;
 import org.apache.log4j.Logger;
@@ -29,4 +30,7 @@ public class BeanValBB {
 		this.naam = naam;
 	}
 
+	public static void main(String[] args) {
+		System.out.println("locale= " + Locale.getDefault());
+	}
 }

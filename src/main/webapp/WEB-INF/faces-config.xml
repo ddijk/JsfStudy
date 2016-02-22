@@ -6,9 +6,9 @@
 
 	<application>
 		<locale-config>
-			<default-locale>nl</default-locale>		
+			<default-locale>nl_NL</default-locale>		
 			<supported-locale>de</supported-locale>
-			<supported-locale>nl</supported-locale>
+			<supported-locale>fr</supported-locale>
 		</locale-config>
 		<message-bundle>nl.notices</message-bundle>
 		<resource-bundle>

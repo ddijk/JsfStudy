@@ -13,7 +13,9 @@
 
 	<!-- IMPLEMENTATION -->
 	<cc:implementation>
-		<h:outputLabel value="#{cc.attrs.mylabel}"/>
+		<h:outputLabel value="#{cc.attrs.mylabel}" for="emailaddress"/>
+		<div>clientId is #{cc.clientId}</div>
+		
 		<h:inputText id="emailaddress" value="#{subscriberManagedBean.emailAddress}">
 		</h:inputText>
 		<h:commandButton  id="knopp" value="Subcribe">

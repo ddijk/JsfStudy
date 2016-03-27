@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+	<body>
+
+		<ui:composition template="./../myTemplate.xhtml">
+
+			<ui:define name="top">
+				top
+			</ui:define>	
+
+			<ui:define name="content">
+				<div>Managed bean in faces-config.xml</div>
+				<h:dataTable var="i" value="#{mijnBean}">
+				
+					<h:column>
+						<f:facet name="header">naam</f:facet>
+						#{i}
+					</h:column>
+				</h:dataTable>
+				
+				<div>size is #{mijnMapBean.size()}, iterating over map does not work until JSF2.3</div>
+				<h:dataTable var="j" value="#{mijnMapBean.keySet}" >
+				
+					<h:column>
+						<f:facet name="header">key</f:facet>
+						#{j}
+					</h:column>
+					<h:column>
+						<f:facet name="header">value</f:facet>
+						
+					</h:column>
+				</h:dataTable>
+				
+				<div><h:outputText value="hallo menner" dir="LTR"/></div>
+				<div><h:outputText value="hallo meneer" dir="RTL"/></div>
+			</ui:define>
+
+		</ui:composition>
+
+	</body>
+</html>

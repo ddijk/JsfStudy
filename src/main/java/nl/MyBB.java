@@ -6,18 +6,20 @@
 package nl;
 
 import java.util.Date;
+import java.util.ResourceBundle;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.event.PhaseEvent;
-import javax.inject.Named;
 import org.apache.log4j.Logger;
 
 /**
  *
  * @author dick
  */
-@Named
+@ManagedBean
 @RequestScoped
 public class MyBB {
 
@@ -25,7 +27,12 @@ public class MyBB {
 
 	MyActionListener myActionListener;
 
+	String msg;
+
 	String name;
+
+	@ManagedProperty(value = "#{facesContext}")
+	private FacesContext facesContext;
 
 	@PostConstruct
 	public void init() {
@@ -60,6 +67,22 @@ public class MyBB {
 		String info = FacesContext.getCurrentInstance().getExternalContext().getRequestPathInfo();
 		LOGGER.info("pad info : " + info);
 		LOGGER.info("handle before PhaseEvent " + pe.getPhaseId());
+	}
+
+	public String getMsg() {
+
+		String mb = facesContext.getApplication().getMessageBundle();
+
+		msg = ResourceBundle.getBundle(mb, facesContext.getViewRoot().getLocale()).getString("groet");
+		return msg;
+	}
+
+	public FacesContext getFacesContext() {
+		return facesContext;
+	}
+
+	public void setFacesContext(FacesContext facesContext) {
+		this.facesContext = facesContext;
 	}
 
 }

@@ -6,9 +6,10 @@
 
 	<application>
 		<locale-config>
-			<default-locale>nl_NL</default-locale>		
+			<default-locale>en</default-locale>		
 			<supported-locale>de</supported-locale>
 			<supported-locale>fr</supported-locale>
+			<supported-locale>nl</supported-locale>
 		</locale-config>
 		<message-bundle>nl.notices</message-bundle>
 		<resource-bundle>
@@ -17,6 +18,38 @@
 			
 		</resource-bundle>
 	</application>
+	
+	<managed-bean>
+		<managed-bean-class>java.util.ArrayList</managed-bean-class>
+		<managed-bean-name>mijnBean</managed-bean-name>
+		<list-entries>
+			<value>ajax</value>
+			<value>fcutrecht</value>
+			<value>feyenoord</value>
+		</list-entries>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+	
+	<managed-bean>
+		<managed-bean-class>java.util.HashMap</managed-bean-class>
+		<managed-bean-name>mijnMapBean</managed-bean-name>
+		<map-entries>
+			<map-entry>
+				<key>a</key>
+				<value>aap</value>
+			</map-entry>
+			<map-entry>
+				<key>b</key>
+				<value>boer</value>
+			</map-entry>
+			<map-entry>
+				<key>c</key>
+				<value>citroen</value>
+			</map-entry>
+			
+		</map-entries>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
 	
 	<converter>
 		<converter-id>personConverter</converter-id>
@@ -41,12 +74,12 @@
             </navigation-case>
         </navigation-rule>
         -->
-
+	<!--
 	<lifecycle>
 
 		<phase-listener>nl.LifecycleListener</phase-listener>   
 
 	</lifecycle>
-    
+    -->
 
 </faces-config>

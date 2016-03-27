@@ -13,6 +13,7 @@
 <h1>Hallo  #{msg['javax.faces.Length']} </h1>
 
 		<h:form>
+			<f:phaseListener type="nl.LifecycleListener"/>
 
 			<h:inputText id="name" value="#{helloBean.name}"></h:inputText>
 			<h:commandButton value="Welcome Me">
@@ -37,6 +38,7 @@
 				<f:actionListener  binding="#{buttonBB.okHandler}" />
 			</h:commandButton>
 		</h:form>
+<div>InitParams:#{initParam['javax.faces.PROJECT_STAGE']}</div>
 
 
 

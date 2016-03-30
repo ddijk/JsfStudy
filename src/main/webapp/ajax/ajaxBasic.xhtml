@@ -16,7 +16,7 @@
       <h:outputLabel value="Getal 2"/>
       <h:inputText id="getal2" value="#{calcManagedBean.getal2}"/>
       <h:commandButton value="calc" action="#{calcManagedBean.calculate()}">
-        <f:ajax execute="getal1 getal2" render="res" listener="#{calcManagedBean.method1()}"/>
+	      <f:ajax execute="getal1 getal2" render="res" listener="#{calcManagedBean.method1()}" onevent="function(e) {console.log('gebeurtenis=' +e.status);}"/>
 
       </h:commandButton>
       <h:outputText id="res" value="#{calcManagedBean.result}" />

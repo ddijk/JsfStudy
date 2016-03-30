@@ -23,6 +23,7 @@ public class PizzaModelBean {
 	private static final Logger LOGGER = Logger.getLogger(PizzaModelBean.class);
 
 	String naam;
+	PizzaTopping primaryTopping;
 
 	@PostConstruct
 	void setup() {
@@ -57,6 +58,14 @@ public class PizzaModelBean {
 	public void setNaam(String naam) {
 		LOGGER.info("setNaam: " + naam);
 		this.naam = naam;
+	}
+
+	public PizzaTopping getPrimaryTopping() {
+		return primaryTopping;
+	}
+
+	public void setPrimaryTopping(PizzaTopping primaryTopping) {
+		this.primaryTopping = primaryTopping;
 	}
 
 }

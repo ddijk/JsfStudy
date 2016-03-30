@@ -6,6 +6,7 @@
 package nl;
 
 import java.util.Date;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -33,6 +34,9 @@ public class MyBB {
 
 	@ManagedProperty(value = "#{facesContext}")
 	private FacesContext facesContext;
+
+	@ManagedProperty(value = "#{initParam}")
+	private Map<String, Object> initParamMap;
 
 	@PostConstruct
 	public void init() {
@@ -71,8 +75,10 @@ public class MyBB {
 
 	public String getMsg() {
 
+		LOGGER.info("initParam:" + initParamMap.get("javax.faces.PROJECT_STAGE"));
 		String mb = facesContext.getApplication().getMessageBundle();
 
+		facesContext.getExternalContext().getSession(true);
 		msg = ResourceBundle.getBundle(mb, facesContext.getViewRoot().getLocale()).getString("groet");
 		return msg;
 	}
@@ -83,6 +89,14 @@ public class MyBB {
 
 	public void setFacesContext(FacesContext facesContext) {
 		this.facesContext = facesContext;
+	}
+
+	public Map<String, Object> getInitParamMap() {
+		return initParamMap;
+	}
+
+	public void setInitParamMap(Map<String, Object> initParamMap) {
+		this.initParamMap = initParamMap;
 	}
 
 }

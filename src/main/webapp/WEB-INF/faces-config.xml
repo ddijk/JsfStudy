@@ -75,11 +75,12 @@
         </navigation-rule>
         -->
 	<!--
+	
 	<lifecycle>
 
 		<phase-listener>nl.LifecycleListener</phase-listener>   
 
 	</lifecycle>
-    -->
+   -->
 
 </faces-config>

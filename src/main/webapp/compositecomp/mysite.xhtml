@@ -24,6 +24,13 @@
 
 			</h:form>
 		</ui:remove>
+		<ezcomp:input id="inpcomp">
+			<f:valueChangeListener for="inp" binding="#{newJSFManagedBean.vcl}" />
+			<f:actionListener for="knop" binding="#{myBB.myActionListener}"/>
+		</ezcomp:input>
+		<h:dataTable id="mytable" var="n" value="#{newJSFManagedBean.names}" >
+			<h:column>#{n}<h:form prependId="false" id="myform"><h:commandButton value="ok"></h:commandButton></h:form></h:column>
+		</h:dataTable>
 	</ui:define>
 
 </ui:composition>
